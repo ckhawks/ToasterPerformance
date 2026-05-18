@@ -24,11 +24,17 @@ namespace ToasterPerformance;
 public static class PatchUIAndMisc
 {
     // ---- #C: Camera.main caching for UIPlayerUsernames -------------------------------
+    // Puck swaps the active camera (gameplay ↔ spectator ↔ replay) by disabling one and
+    // enabling another rather than destroying. A `== null` check alone keeps a stale
+    // reference to the disabled camera, whose transform no longer tracks the active view —
+    // names then project from the wrong viewpoint and can land in/behind the floor.
+    // Re-fetch whenever the cached camera is destroyed *or* no longer active+enabled.
     private static Camera s_cachedMainCamera;
 
     private static Camera GetMainCamera()
     {
-        if (s_cachedMainCamera == null) s_cachedMainCamera = Camera.main;
+        if (s_cachedMainCamera == null || !s_cachedMainCamera.isActiveAndEnabled)
+            s_cachedMainCamera = Camera.main;
         return s_cachedMainCamera;
     }
 
