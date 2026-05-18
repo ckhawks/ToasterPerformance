@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using HarmonyLib;
 
-namespace ToasterPerfPatches;
+namespace ToasterPerformance;
 
 // Patches for PlayerManager and PuckManager (#4):
 //

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using HarmonyLib;
 using UnityEngine.UIElements;
 
-namespace ToasterPerfPatches;
+namespace ToasterPerformance;
 
 // Two per-frame UI/scene allocators surfaced by ToasterProfiler:
 //

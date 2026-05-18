@@ -79,10 +79,10 @@ or networking code.
 ## Install
 
 1. Place `ToasterPerformance.dll` (or whatever you build it as) into:
-   - `Puck/Plugins/ToasterPerfPatches/` (client)
-   - `Puck Dedicated Server/Plugins/ToasterPerfPatches/` (server)
+   - `Puck/Plugins/ToasterPerformance/` (client)
+   - `Puck Dedicated Server/Plugins/ToasterPerformance/` (server)
 2. Restart the game.
-3. Confirm `[ToasterPerfPatches] All patched!` in `Logs/Puck.log`.
+3. Confirm `[ToasterPerformance] All patched!` in `Logs/Puck.log`.
 
 ## Companion tool
 

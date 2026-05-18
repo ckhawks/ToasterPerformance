@@ -1,4 +1,4 @@
-# ToasterPerfPatches — testing checklist
+# ToasterPerformance — testing checklist
 
 Running list of things to verify in-game. Check items off as you go; flag failures with the date and a one-line repro so we can untangle them.
 
@@ -7,8 +7,8 @@ Running list of things to verify in-game. Check items off as you go; flag failur
 ## Unit 1 — SyncObjects (#3 + #1 + #2 + #3a + #B)
 
 ### Smoke — does it load at all
-- [ ] On client launch, log contains `[ToasterPerfPatches] Enabling 0.1.0...`
-- [ ] Log contains `[ToasterPerfPatches] All patched!` (no `TypeInitializationException`, no `Failed to Enable`)
+- [ ] On client launch, log contains `[ToasterPerformance] Enabling 0.1.0...`
+- [ ] Log contains `[ToasterPerformance] All patched!` (no `TypeInitializationException`, no `Failed to Enable`)
 - [ ] No errors in console during the first server join
 
 ### Correctness — does the game still play
@@ -90,4 +90,4 @@ Running list of things to verify in-game. Check items off as you go; flag failur
 
 ## How to report a failure
 
-Paste the offending log block (search the log for `[ToasterPerfPatches]` first, then include 10 lines above and below). If it's a visual bug, a video clip beats words. Note which Unit was the last one I shipped before you saw it — that narrows the suspect set immediately.
+Paste the offending log block (search the log for `[ToasterPerformance]` first, then include 10 lines above and below). If it's a visual bug, a video clip beats words. Note which Unit was the last one I shipped before you saw it — that narrows the suspect set immediately.

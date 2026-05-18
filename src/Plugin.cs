@@ -3,13 +3,13 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using Exception = System.Exception;
 
-namespace ToasterPerfPatches;
+namespace ToasterPerformance;
 
 public class Plugin : IPuckPlugin
 {
-    public static string MOD_NAME = "ToasterPerfPatches";
+    public static string MOD_NAME = "ToasterPerformance";
     public static string MOD_VERSION = "0.1.0";
-    public static string MOD_GUID = "pw.stellaric.toaster.perfpatches";
+    public static string MOD_GUID = "pw.stellaric.toaster.performance";
 
     static readonly Harmony harmony = new Harmony(MOD_GUID);
 
@@ -31,7 +31,7 @@ public class Plugin : IPuckPlugin
             // get added during scene init (before our Harmony patches can intercept Awake).
             if (IsDedicatedServer())
             {
-                var go = new GameObject("ToasterPerfPatches_HUDListenerCleanup");
+                var go = new GameObject("ToasterPerformance_HUDListenerCleanup");
                 Object.DontDestroyOnLoad(go);
                 go.AddComponent<HUDListenerCleanupDriver>();
             }

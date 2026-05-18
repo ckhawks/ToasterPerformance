@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using HarmonyLib;
 
-namespace ToasterPerfPatches;
+namespace ToasterPerformance;
 
 // Patches for NetworkObjectCollisionRecorder + GetPlayerPuck (#5, #6, #G):
 //

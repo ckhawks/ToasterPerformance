@@ -2,7 +2,7 @@ using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ToasterPerfPatches;
+namespace ToasterPerformance;
 
 // Patches that don't fit elsewhere:
 //

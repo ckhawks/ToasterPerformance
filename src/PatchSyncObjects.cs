@@ -4,7 +4,7 @@ using HarmonyLib;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace ToasterPerfPatches;
+namespace ToasterPerformance;
 
 // Patches for SynchronizedObjectManager hot paths:
 //

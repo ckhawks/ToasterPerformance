@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
 
-namespace ToasterPerfPatches;
+namespace ToasterPerformance;
 
 // Several vanilla Puck event fire-sites allocate a Dictionary<string, object> before
 // calling EventManager.TriggerEvent — which means the allocation happens even when

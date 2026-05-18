@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net4.8</TargetFramework>
     <LangVersion>10</LangVersion>
-    <PackageId>ToasterPerfPatches</PackageId>
-    <Authors>ToasterPerfPatches</Authors>
-    <Company>ToasterPerfPatches</Company>
-    <Product>ToasterPerfPatches</Product>
+    <PackageId>ToasterPerformance</PackageId>
+    <Authors>ToasterPerformance</Authors>
+    <Company>ToasterPerformance</Company>
+    <Product>ToasterPerformance</Product>
   </PropertyGroup>
 
   <!-- Reference the shared libs folder from the ToasterServerCrashExploitPatch mod
@@ -30,8 +30,8 @@
 
   <Target Name="PostBuildMoveDll" AfterTargets="Build">
     <PropertyGroup>
-      <TargetDir>C:\Program Files (x86)\Steam\steamapps\common\Puck\Plugins\ToasterPerfPatches</TargetDir>
-      <ServerTargetDir>C:\Program Files (x86)\Steam\steamapps\common\Puck Dedicated Server\Plugins\ToasterPerfPatches</ServerTargetDir>
+      <TargetDir>C:\Program Files (x86)\Steam\steamapps\common\Puck\Plugins\ToasterPerformance</TargetDir>
+      <ServerTargetDir>C:\Program Files (x86)\Steam\steamapps\common\Puck Dedicated Server\Plugins\ToasterPerformance</ServerTargetDir>
     </PropertyGroup>
 
     <MakeDir Directories="$(TargetDir)" />

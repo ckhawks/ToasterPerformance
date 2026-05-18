@@ -2,7 +2,7 @@ using HarmonyLib;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace ToasterPerfPatches;
+namespace ToasterPerformance;
 
 // Client-side physics-cost reductions (PERF_HOTSPOTS items #D-revised, #9, #E):
 //
