@@ -80,11 +80,11 @@ Running list of things to verify in-game. Check items off as you go; flag failur
 
 ### Correctness
 - [ ] Player username labels appear above other players' heads, fade with distance, hide when behind camera.
-- [ ] After camera changes (replay camera, spectator switch, scene reload) — usernames still track. **This is the #1 thing to watch.** My cache assumes Camera.main is stable; if it goes null, I lazily re-fetch. If it's *swapped* for another camera object, the cache will hold the old reference until the old camera is destroyed.
+- [ ] After camera changes (replay camera, spectator switch, scene reload) — usernames still track. The cache now re-fetches `Camera.main` whenever the cached reference is destroyed *or* no longer `isActiveAndEnabled`, so a disable-old / enable-new swap is picked up on the next frame.
 - [ ] Stick-on-ice sound plays when stick first touches ice (`OnGrounded` path). LayerMask was cached on first call — verify the sound triggers.
 
 ### Known risks
-- **Camera swap without nulling**: if Puck swaps the main camera (e.g. for spectator view) by activating a different Camera and keeping the old one alive, my cached reference stays pointed at the old (now inactive) camera. Usernames will look wrong. If you see this, I'll add a `Camera.main` poll every N frames as fallback.
+- **Camera swap without disabling**: the cache now invalidates when the cached camera is `!isActiveAndEnabled`, which covers Puck's disable-old / enable-new pattern. The remaining gap: if Puck ever activates a *second* MainCamera-tagged camera while leaving the original one enabled, we'd stay on the original. Not observed in practice; if it shows up, fall back to a periodic `Camera.main` poll.
 
 ---
 
