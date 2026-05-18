@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net4.8</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <PackageId>ToasterPerfPatches</PackageId>
+    <Authors>ToasterPerfPatches</Authors>
+    <Company>ToasterPerfPatches</Company>
+    <Product>ToasterPerfPatches</Product>
+  </PropertyGroup>
+
+  <!-- Reference the shared libs folder from the ToasterServerCrashExploitPatch mod
+       so we don't duplicate ~30 DLLs. Adjust the path if libs live elsewhere. -->
+  <ItemGroup>
+    <Libs Include="..\ToasterReskinLoader\libs\*.dll" />
+
+    <Reference Include="@(Libs)">
+      <HintPath>%(Libs.FullPath)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PreBuildMessage" BeforeTargets="Build">
+    <Message Importance="high" Text="Building $(AssemblyName)..." />
+  </Target>
+
+  <Target Name="PostBuildMessage" AfterTargets="Build">
+    <Message Importance="high" Text="$(AssemblyName) built successfully!" />
+  </Target>
+
+  <Target Name="PostBuildMoveDll" AfterTargets="Build">
+    <PropertyGroup>
+      <TargetDir>C:\Program Files (x86)\Steam\steamapps\common\Puck\Plugins\ToasterPerfPatches</TargetDir>
+      <ServerTargetDir>C:\Program Files (x86)\Steam\steamapps\common\Puck Dedicated Server\Plugins\ToasterPerfPatches</ServerTargetDir>
+    </PropertyGroup>
+
+    <MakeDir Directories="$(TargetDir)" />
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(TargetDir)" OverwriteReadOnlyFiles="true" />
+    <Message Importance="high" Text="Copied $(AssemblyName).dll to $(TargetDir)" />
+
+    <MakeDir Directories="$(ServerTargetDir)" />
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(ServerTargetDir)" OverwriteReadOnlyFiles="true" />
+    <Message Importance="high" Text="Copied $(AssemblyName).dll to $(ServerTargetDir)" />
+  </Target>
+
+</Project>
